@@ -9,18 +9,13 @@ export default function Home() {
                 <section className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
                     <div className="flex-1 space-y-6 text-center lg:text-left">
                         <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
-                            Sávio Mariguela <br />
+                            Sávio Mariguela Decaro <br />
                             <span className="text-red-600 dark:text-red-400 text-3xl lg:text-5xl">
                 Full Stack & .NET Engineer
               </span>
                         </h1>
 
-                        {/* Engenheiro Sênior diz:
-               Ajuste Crítico: Removemos "SCADA" do texto principal.
-               Agora, focamos na capacidade de entregar software robusto.
-               A experiência industrial vira "sistemas de missão crítica",
-               que é um termo muito valorizado no mundo corporativo/bancário .NET.
-            */}
+
                         <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
                             Engenharia de software focada em <strong>Aplicações Web Escaláveis</strong> e ecossistema <strong>.NET</strong>.
                             Especialista em construir soluções completas, unindo a performance do C# no backend com a interatividade do <strong>Next.js</strong> no frontend.
@@ -33,19 +28,13 @@ export default function Home() {
                             >
                                 Ver Projetos
                             </a>
-                            <a
-                                href="/cv_savio.pdf"
-                                download
-                                className="border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 px-6 py-3 rounded-lg font-medium transition-all"
-                            >
-                                Download CV
-                            </a>
+
                         </div>
                     </div>
 
                     <div className="relative w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
                         <Image
-                            src="/avatar.jpg"
+                            src="/profile.jpg"
                             alt="Sávio Mariguela Decaro"
                             fill
                             priority
