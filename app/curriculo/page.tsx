@@ -61,16 +61,13 @@ export default function Curriculo() {
 
                                     <ul className="space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed list-disc marker:text-red-500 pl-4">
                                         <li>
-                                            <strong>Full Stack & Cloud:</strong> Desenvolvimento de dashboards industriais utilizando <strong>Next.js</strong>, integrando dados em tempo real com deploy em ambiente <strong>AWS</strong>.
+                                            <strong>Full Stack & Cloud:</strong> Desenvolvimento de dashboards utilizando <strong>Next.js</strong>, integrando dados em tempo real com deploy em ambiente <strong>AWS</strong>.
                                         </li>
                                         <li>
-                                            <strong>Modernização de Legado:</strong> Substituição e melhoria de sistemas SCADA antigos por interfaces web modernas e responsivas.
+                                            <strong>Sistemas Legado:</strong>Otimização e utilização de sistemas SCADA.
                                         </li>
                                         <li>
-                                            <strong>Engenharia de Dados:</strong> Modelagem e otimização de banco de dados <strong>PostgreSQL</strong> para alta performance na persistência de dados industriais.
-                                        </li>
-                                        <li>
-                                            <strong>Suporte Avançado:</strong> Atuação na otimização de latência de software e resolução de problemas críticos de automação.
+                                            <strong>Engenharia de Dados:</strong> Modelagem e otimização de banco de dados <strong>PostgreSQL</strong> para alta performance na persistência de dados.
                                         </li>
                                     </ul>
                                 </div>
