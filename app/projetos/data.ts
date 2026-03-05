@@ -14,7 +14,7 @@ export const projects: Project[] = [
         title: "Jogo Aprendendo ingles",
         description: "Joguinho para aprender ingles feito em Angular e nodeJs",
         tags: ["Angular", "NodeJs", "Javascript"],
-        netlifyUrl: "https://jogo-aprendendo-ingles-savio.netlify.app/", // Coloque a URL real aqui
+        netlifyUrl: "https://jogo-aprendendo-ingles-savio.netlify.app/",
     },
     {
         id: "landing-page-Form",

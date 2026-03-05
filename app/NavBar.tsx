@@ -18,7 +18,7 @@ export default function NavBar() {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // Monitora o scroll para alterar o estado
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 20) {
@@ -34,7 +34,7 @@ export default function NavBar() {
 
     const linkStyle = "transition-transform duration-200 hover:scale-110 active:scale-95 block";
 
-    // Lógica base (afeta mobile). No desktop, sobrescreveremos via CSS.
+
     const showFullNav = !isScrolled || isOpen;
 
     return (
@@ -46,7 +46,6 @@ export default function NavBar() {
             ${showFullNav
                 ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-lg shadow-black/5 dark:shadow-black/20"
                 : "bg-transparent border-transparent shadow-none pointer-events-none md:bg-white/80 dark:md:bg-slate-950/80 md:backdrop-blur-xl md:border-slate-200/80 dark:md:border-slate-800 md:shadow-lg md:pointer-events-auto"
-                // ^ AQUI: Mudei dark:border-slate-700 para dark:border-slate-800 (mais escuro e discreto)
             }
         `}
         >
@@ -141,7 +140,7 @@ export default function NavBar() {
                 ${!showFullNav
                     ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-lg"
                     : "text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
-                    // ^ AQUI: Também ajustei o botão flutuante para dark:border-slate-800
+                    
                 }
             `}
                 aria-label="Menu"
@@ -160,7 +159,7 @@ export default function NavBar() {
                 <div className="absolute top-full left-0 right-0 mt-3 p-1 pointer-events-auto">
                     <div
                         className="bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border border-slate-200/50 dark:border-slate-800 rounded-2xl p-6 flex flex-col items-center gap-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-300 origin-top">
-                        {/* ^ AQUI: Ajustei a borda do menu mobile para dark:border-slate-800 */}
+
 
                         {/* Links de Navegação */}
                         <div className="flex flex-col gap-6 w-full text-center">

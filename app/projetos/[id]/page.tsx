@@ -2,7 +2,7 @@ import { projects } from "../data";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// 1. Definição correta da tipagem para Next.js 15+
+
 interface ProjectPageProps {
     params: Promise<{ id: string }>; // params é uma Promise agora
 }
@@ -19,11 +19,10 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
 // 3. Componente da Página
 export default async function ProjectViewer({ params }: ProjectPageProps) {
-    // A CORREÇÃO MÁGICA: Aguarda os parâmetros serem resolvidos
+
     const { id } = await params;
 
-    // Busca o projeto no array
-    // Dica: O decodeURIComponent ajuda caso a URL venha com %20 (espaços)
+
     const project = projects.find((p) => p.id === id || p.id === decodeURIComponent(id));
 
     if (!project) {
@@ -34,7 +33,6 @@ export default async function ProjectViewer({ params }: ProjectPageProps) {
         <main className="h-screen flex flex-col bg-slate-50 dark:bg-slate-950 overflow-hidden">
 
             {/* Top Bar de Controle */}
-            {/* pt-24 garante que não fique escondido atrás da sua NavBar fixa */}
             <div className="flex-none bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between z-40 shadow-sm pt-24 pb-4">
 
                 <div className="flex items-center gap-4">
