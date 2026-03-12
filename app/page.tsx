@@ -2,12 +2,11 @@ import Image from "next/image";
 
 export default function Home() {
     return (
-        <main className=" min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-center">
-            {/* Ajuste de padding: py-12 no mobile, py-32 no desktop */}
-            <div className=" max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-32 flex flex-col gap-12 lg:gap-16 w-full">
+        <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-25 pb-12 lg:py-32 flex flex-col gap-12 lg:gap-16 w-full">
 
                 {/* Hero Section */}
-                <section className= "flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
+                <section className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
                     <div className="flex-1 space-y-6 text-center lg:text-left w-full">
                         {/* Títulos ajustados para não ficarem gigantes no mobile */}
