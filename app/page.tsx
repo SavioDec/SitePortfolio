@@ -25,7 +25,7 @@ export default function Home() {
                         {/* Botões: w-full no mobile para facilitar o toque, w-auto no desktop */}
                         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
                             <a
-                                href="#projects"
+                                href="/projetos"
                                 className="w-full sm:w-auto bg-red-600 hover:bg-red-700 active:scale-95 text-white px-8 py-3.5 rounded-xl font-medium transition-all shadow-lg shadow-red-600/20 text-center"
                             >
                                 Ver Projetos
