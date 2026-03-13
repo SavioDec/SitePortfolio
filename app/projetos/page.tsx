@@ -12,7 +12,7 @@ export default function ProjectsGallery() {
                         Meus <span className="text-red-600 dark:text-red-500">Projetos</span>
                     </h1>
                     <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-                        Uma seleção de aplicações desenvolvidas com foco em performance, escalabilidade e experiência do usuário.
+                        Uma seleção de aplicações desenvolvidas.
                         Clique em um card para testar a aplicação ao vivo.
                     </p>
                 </div>
