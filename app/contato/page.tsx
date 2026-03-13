@@ -13,7 +13,7 @@ export default function Contato() {
                         Vamos construir o <span className="text-red-600 dark:text-red-500">futuro?</span>
                     </h1>
                     <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-                        Estou disponível para discutir projetos de automação, oportunidades Full Stack ou soluções de infraestrutura.
+                        Estou disponível para discutir projetos de automação, oportunidades Full Stack ou criações de Websites.
                     </p>
                 </div>
 
@@ -27,7 +27,7 @@ export default function Contato() {
 
                         {/* Email */}
                         <a
-                            href="mailto:savio.decaro@gmail.com"
+                            href="mailto:contato@saviodecaro.dev"
                             className="group flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
                         >
                             <div className="bg-red-100 dark:bg-red-900/30 p-3.5 rounded-xl text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform">
@@ -35,7 +35,7 @@ export default function Contato() {
                             </div>
                             <div>
                                 <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Email</p>
-                                <p className="text-lg font-bold text-slate-900 dark:text-white break-all">savio.decaro@gmail.com</p>
+                                <p className="text-lg font-bold text-slate-900 dark:text-white break-all">contato@saviodecaro.dev</p>
                             </div>
                         </a>
 
@@ -51,7 +51,7 @@ export default function Contato() {
                             </div>
                             <div>
                                 <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">WhatsApp</p>
-                                <p className="text-lg font-bold text-slate-900 dark:text-white">(16) 99350-8184</p>
+                                <p className="text-lg font-bold text-slate-900 dark:text-white">WhatsApp</p>
                             </div>
                         </a>
 

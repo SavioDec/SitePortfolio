@@ -39,7 +39,7 @@ export default function Sobre() {
                                 O que me move hoje
                             </h3>
                             <p>
-                                Atualmente, busco inovações na interseção entre <strong>software e hardware</strong>. Gosto de escovar bits em C e arquitetar soluções escaláveis na AWS com a mesma intensidade. Não me contento com o "funciona na minha máquina".
+                                Desenvolvedor Full Stack focado na construção de <strong>Web Applications escaláveis</strong>.Minha prioridade é a entrega de código limpo e sistemas distribuídos que eliminam gargalos técnicos, garantindo consistência entre ambientes de dev e produção.
                             </p>
                         </div>
 
