@@ -1,0 +1,16 @@
+.pointer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 2rem;
+    aspect-ratio: 1;
+    background-color: rgb(109 0 0 / 255);
+    border: 1px solid transparent;
+    border-radius: 100%;
+    pointer-events: none;
+
+    transform: translate3d(var(--mouseX, 0), var(--mouseY, 0), 0) translate(-50%, -50%);
+    transition: 0.3s ease-out;
+    transition-property: transform, width, border, background-color;
+}
