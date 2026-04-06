@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sávio Decaro",
-  description: "Site curriculo sávio",
+  description: "Portfólio de Sávio Decaro",
 };
 
 export default function RootLayout({
