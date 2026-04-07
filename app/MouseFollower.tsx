@@ -7,8 +7,8 @@ type FollowerState = 'sitting' | 'getting_up' | 'walking' | 'flying' | 'sitting_
 
 export default function MouseFollower() {
     const pointerRef = useRef<HTMLDivElement>(null);
-    const mousePos = useRef({ x: -100, y: -100 }); 
-    const currentPos = useRef({ x: -100, y: -100 });
+    const mousePos = useRef({ x: 0, y: 0 }); 
+    const currentPos = useRef({ x: 40, y: 25 });
     
     const lastScaleX = useRef(1); 
     const lastAngle = useRef(0); 
@@ -21,8 +21,8 @@ export default function MouseFollower() {
         STOP_DISTANCE: 50,      
         WAKE_DISTANCE: 65,      
         FLY_DISTANCE: 250,      
-        WALK_SPEED: 2.5,        
-        FLY_SPEED: 7.0,         
+        WALK_SPEED: 2.7,        
+        FLY_SPEED: 5.0,         
         TRANSITION_MS: 300  
     };
 
@@ -66,7 +66,7 @@ export default function MouseFollower() {
                     if (distance > CONFIG.WAKE_DISTANCE) {
                         changeState('getting_up');
                         stateEndTime.current = timestamp + CONFIG.TRANSITION_MS;
-                        // CORREÇÃO: Zera o ângulo imediatamente ao levantar
+                        
                         lastAngle.current = 0;
                     } else {
                         lastAngle.current = 0;
