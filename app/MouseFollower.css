@@ -7,10 +7,30 @@
     height: 64px;
     pointer-events: none;
     
-    background-image: url('/banguela-walking.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     transform: translate3d(var(--mouseX, 0), var(--mouseY, 0), 0) translate(-50%, -50%) scaleX(var(--scaleX, 1)) rotate(var(--rotation, 0deg));
+}
+
+/* Roteamento de Assets Baseado em Estado (FSM) */
+.pointer[data-state="sitting"] {
+    background-image: url('/BANGUELA_SENTADO.png');
+}
+
+.pointer[data-state="getting_up"] {
+    background-image: url('/BANGUELA_LEVANTANDO.png');
+}
+
+.pointer[data-state="walking"] {
+    background-image: url('/BANGUELA_ANDANDO.png');
+}
+
+.pointer[data-state="flying"] {
+    background-image: url('/BANGUELA_VOANDO.png');
+}
+
+.pointer[data-state="sitting_down"] {
+    background-image: url('/BANGUELA_SENTANDO.png');
 }
