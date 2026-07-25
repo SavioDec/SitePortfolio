@@ -61,13 +61,13 @@ export default function Curriculo() {
 
                                     <ul className="space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed list-disc marker:text-red-500 pl-4">
                                         <li>
-                                            <strong>Full Stack & Cloud:</strong> Desenvolvimento de dashboards utilizando <strong>Next.js</strong>, integrando dados em tempo real com deploy em ambiente <strong>AWS</strong>.
+                                            <strong>Full Stack & Cloud:</strong> Desenvolvimento e sustentação de um ecossistema corporativo (Intranet/ERP) utilizando Next.js, Node.js e TypeScript. Criação de interfaces reativas para consumo de dados em tempo real e execução de deploy em infraestrutura AWS.
                                         </li>
                                         <li>
-                                            <strong>Sistemas Legado:</strong>Otimização e utilização de sistemas SCADA.
+                                            <strong>Automação & Integrações:</strong> Operação, otimização e monitoramento via sistemas SCADA. Desenvolvimento de integrações avançadas de rede, incluindo a implementação de terminais SSH via web e o mapeamento/visualização de tópicos MQTT com arquitetura de baixa latência.
                                         </li>
                                         <li>
-                                            <strong>Engenharia de Dados:</strong> Modelagem e otimização de banco de dados <strong>PostgreSQL</strong> para alta performance na persistência de dados.
+                                            <strong>Engenharia de Dados:</strong> Modelagem relacional e manipulação estrutural em banco de dados PostgreSQL. Otimização de queries para garantir alta performance e integridade transacional na persistência de dados de telemetria e fluxos internos.
                                         </li>
                                     </ul>
                                 </div>
@@ -112,7 +112,7 @@ export default function Curriculo() {
                                 <p className="text-red-600 dark:text-red-400 text-sm font-medium mt-1">UNAERP - Ribeirão Preto</p>
                                 <div className="mt-3 flex items-center gap-2">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-                    Cursando (5º Semestre)
+                    Cursando (6º Semestre)
                   </span>
                                 </div>
                             </div>
