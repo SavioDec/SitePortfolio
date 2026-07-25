@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projects } from "./data";
+import { projects } from "@/src/data/data";
 
 export default function ProjectsGallery() {
     return (
