@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import "./MouseFollower.css";
+import styles from "./MouseFollower.module.css";
 
 type FollowerState = 'sitting' | 'getting_up' | 'walking' | 'flying' | 'sitting_down';
 
@@ -123,6 +123,6 @@ export default function MouseFollower() {
     }, []);
 
     return (
-        <div ref={pointerRef} className="pointer" aria-hidden={true}></div>
+        <div ref={pointerRef} className={styles.pointer} aria-hidden={true}></div>
     );
 }
