@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { getDictionary } from "@/src/utils/lang";
 
-export default function Home() {
+export default async function Home() {
+    const dict = await getDictionary();
+
     return (
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-25 pb-12 lg:py-32 flex flex-col gap-12 lg:gap-16 w-full">
@@ -13,13 +16,11 @@ export default function Home() {
                         <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
                             Sávio Mariguela Decaro <br />
                             <span className="text-red-600 dark:text-red-500 text-2xl sm:text-3xl lg:text-5xl block mt-2">
-                                Full Stack & .NET Engineer
+                                {dict.home.role}
                             </span>
                         </h1>
 
-                        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            Engenharia de software focada em <strong>Aplicações Web Escaláveis</strong> e ecossistema <strong>.NET</strong>.
-                            Especialista em construir soluções completas, unindo a performance do C# no backend com a interatividade do <strong>Next.js</strong> no frontend.
+                        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed" dangerouslySetInnerHTML={{ __html: dict.home.description.replace('Aplicações Web Escaláveis', '<strong>Aplicações Web Escaláveis</strong>').replace('.NET', '<strong>.NET</strong>').replace('Next.js', '<strong>Next.js</strong>').replace('Scalable Web Applications', '<strong>Scalable Web Applications</strong>') }}>
                         </p>
 
                         {/* Botões: w-full no mobile para facilitar o toque, w-auto no desktop */}
@@ -28,12 +29,12 @@ export default function Home() {
                                 href="/projetos"
                                 className="w-full sm:w-auto bg-red-600 hover:bg-red-700 active:scale-95 text-white px-8 py-3.5 rounded-xl font-medium transition-all shadow-lg shadow-red-600/20 text-center"
                             >
-                                Ver Projetos
+                                {dict.home.viewProjects}
                             </a>
 
                             <a
-                                href="/Curriculo_Savio_Decaro_PT.pdf"
-                                download="Curriculo_Savio_Decaro.pdf"
+                                href={`/${dict.curriculo.resumePdfName}`}
+                                download={dict.curriculo.resumePdfName}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm hover:shadow-md active:scale-95"
@@ -41,7 +42,7 @@ export default function Home() {
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                 </svg>
-                                Baixar Currículo
+                                {dict.home.downloadResume}
                             </a>
                         </div>
                     </div>
@@ -62,7 +63,7 @@ export default function Home() {
                 {/* Tech Stack */}
                 <section className="border-t border-slate-200 dark:border-slate-800 pt-10">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 text-center lg:text-left">
-                        Core Technologies
+                        {dict.home.coreTech}
                     </h2>
 
                     {/* Transformei em Badges para ficar mais organizado no mobile */}
