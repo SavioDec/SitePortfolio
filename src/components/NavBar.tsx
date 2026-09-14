@@ -2,20 +2,27 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-// 1. CONFIGURAÇÃO DE ROTAS
-const navLinks = [
-    { name: "Sobre", href: "/sobre" },
-    { name: "Projetos", href: "/projetos" },
-    { name: "Currículo", href: "/curriculo" },
-    { name: "Contato", href: "/contato" },
-];
-
-export default function NavBar() {
+export default function NavBar({ lang, dict }: { lang: 'pt' | 'en', dict: any }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const router = useRouter();
+
+    const navLinks = [
+        { name: dict.nav.sobre, href: "/sobre" },
+        { name: dict.nav.projetos, href: "/projetos" },
+        { name: dict.nav.curriculo, href: "/curriculo" },
+        { name: dict.nav.contato, href: "/contato" },
+    ];
 
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    const toggleLang = () => {
+        const newLang = lang === 'pt' ? 'en' : 'pt';
+        document.cookie = `NEXT_LOCALE=${newLang}; path=/`;
+        router.refresh();
+    };
 
     // Monitora o scroll para alterar o estado
     useEffect(() => {
@@ -113,41 +120,60 @@ export default function NavBar() {
             <div className={`
             ${!isScrolled ? "hidden md:flex" : "hidden"} items-center gap-4 transition-all duration-300
         `}>
+                <button
+                    onClick={toggleLang}
+                    className="flex items-center justify-center w-9 h-9 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full font-bold text-xs transition-all hover:scale-105 active:scale-95 text-slate-700 dark:text-white"
+                >
+                    {lang === 'pt' ? 'EN' : 'PT'}
+                </button>
                 <a href="https://github.com/saviodec" target="_blank" rel="noopener noreferrer">
                     <button
                         className="border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500 px-5 py-2 rounded-full text-sm font-medium transition-all hover:scale-105 active:scale-95 text-slate-700 dark:text-white">
-                        GitHub
+                        {dict.nav.github}
                     </button>
                 </a>
                 <a href="https://www.linkedin.com/in/savio-mariguela-decaro-1a06b1279/" target="_blank" rel="noopener noreferrer">
                     <button
                         className="bg-red-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-red-500 transition-all hover:scale-105 active:scale-95 shadow-[0px_0px_15px_rgba(220,38,38,0.4)] hover:shadow-[0px_0px_20px_rgba(220,38,38,0.6)]">
-                        LinkedIn
+                        {dict.nav.linkedin}
                     </button>
                 </a>
             </div>
 
-            {/* 4. HAMBÚRGUER (Agora funciona tanto no Mobile quanto no Desktop quando rola) */}
-            <button
-                onClick={toggleMenu}
-                className={`
-                flex p-2 ml-auto transition-all duration-300 active:scale-90 pointer-events-auto rounded-full
-                ${!isScrolled ? "md:hidden" : ""} 
-                ${!isExpanded
-                    ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-lg"
-                    : "text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
-                }
-            `}
-                aria-label="Menu"
-            >
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    {isOpen ? (
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                    ) : (
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                    )}
-                </svg>
-            </button>
+            {/* 4. HAMBÚRGUER */}
+            <div className="flex items-center gap-3 ml-auto md:hidden pointer-events-auto">
+                <button
+                    onClick={toggleLang}
+                    className={`
+                    flex items-center justify-center w-9 h-9 border rounded-full font-bold text-xs transition-all active:scale-90
+                    ${!isExpanded
+                        ? "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-lg"
+                        : "border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-white"
+                    }
+                    `}
+                >
+                    {lang === 'pt' ? 'EN' : 'PT'}
+                </button>
+                <button
+                    onClick={toggleMenu}
+                    className={`
+                    flex p-2 transition-all duration-300 active:scale-90 rounded-full
+                    ${!isExpanded
+                        ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-lg"
+                        : "text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
+                    }
+                `}
+                    aria-label="Menu"
+                >
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        {isOpen ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                        ) : (
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                        )}
+                    </svg>
+                </button>
+            </div>
 
             {/* 5. MOBILE / DESKTOP DROPDOWN */}
             {isOpen && (
@@ -175,12 +201,12 @@ export default function NavBar() {
                         <div className="flex flex-col w-full gap-3">
                             <a href="https://github.com/saviodec" target="_blank" rel="noopener noreferrer" className="w-full">
                                 <button className="w-full border border-slate-300 dark:border-slate-600 py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition active:scale-[0.98] font-medium text-slate-700 dark:text-white">
-                                    GitHub
+                                    {dict.nav.github}
                                 </button>
                             </a>
                             <a href="https://www.linkedin.com/in/savio-mariguela-decaro-1a06b1279/" target="_blank" rel="noopener noreferrer" className="w-full">
                                 <button className="w-full bg-red-600 text-white py-3.5 rounded-xl font-bold hover:bg-red-500 transition active:scale-[0.98] shadow-lg shadow-red-900/20">
-                                    LinkedIn
+                                    {dict.nav.linkedin}
                                 </button>
                             </a>
                         </div>

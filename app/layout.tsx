@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/src/components/NavBar";
 import React from "react";
 import MouseFollower from "@/src/components/MouseFollower";
+import { getLang, getDictionary } from "@/src/utils/lang";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,18 +21,21 @@ export const metadata: Metadata = {
   description: "Portfólio de Sávio Decaro",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await getLang();
+  const dict = await getDictionary();
+
   return (
-    <html lang="pt-br">
+    <html lang={lang === 'pt' ? 'pt-br' : 'en'}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <MouseFollower/>
-      <NavBar/>
+      <NavBar lang={lang} dict={dict} />
 
         {children}
       </body>
