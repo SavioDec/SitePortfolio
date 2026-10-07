@@ -1,0 +1,137 @@
+// Conteúdo dos currículos (PT e EN). Edite aqui e rode `npm run resume`.
+const common = {
+  name: "Sávio Mariguela Decaro",
+  city: "Ribeirão Preto, SP",
+  phone: "+55 16 99350-8184",
+  email: "savio.decaro@gmail.com",
+  linkedin: "https://www.linkedin.com/in/savio-mariguela-decaro-1a06b1279/",
+  github: "https://github.com/SavioDec",
+  site: "https://saviodecaro.dev",
+};
+
+export const resumes = {
+  pt: {
+    ...common,
+    lang: "pt-BR",
+    file: "Curriculo_Savio_Decaro_PT.pdf",
+    docTitle: "Currículo - Sávio Mariguela Decaro - Mobile Developer (Kotlin · Swift) | Full Stack",
+    subject: "Currículo de Mobile Developer (Kotlin e Swift) com base Full Stack",
+    keywords: "Kotlin, Swift, Android, iOS, mobile, REST APIs, C#, .NET, Next.js, TypeScript, PostgreSQL, MQTT, SCADA, Scada-LTS",
+    role: "Mobile Developer (Kotlin · Swift) | Full Stack",
+    h: { summary: "Resumo", experience: "Experiência", education: "Formação", skills: "Habilidades", projects: "Projetos", courses: "Cursos", languages: "Idiomas" },
+    summary:
+      "Mobile Developer com foco em Kotlin e Swift (Android e iOS), com base Full Stack, cursando Engenharia de Software. Experiência em REST APIs, C#/.NET, Next.js, TypeScript e PostgreSQL. Na RDG Tecnologia em Automação, mantenho em produção sistemas usados por toda a equipe, integrações IoT com MQTT e sistemas SCADA para cerca de 26 clientes.",
+    jobs: [
+      {
+        title: "Desenvolvedor de Software (Estágio)",
+        org: "RDG Tecnologia em Automação",
+        place: "Ribeirão Preto, SP",
+        period: "02/2026 – Atual",
+        bullets: [
+          "Desenvolvi e mantenho em produção um monorepo com 5 aplicações (Central, Agenda, Financeiro, Ordem de Serviço e Inventário) em Next.js, TypeScript, NextAuth e PostgreSQL, usado por todos os 8 funcionários, com deploy em Docker e CI/CD no GitHub Actions.",
+          "Construí o sistema de Controle de Ponto com banco de horas, férias, atestados e espelho de ponto em PDF, usando Next.js, PostgreSQL e envio automático de e-mails.",
+          "Implementei no Inventário a leitura de QR Code e OCR de etiquetas pelo celular (html5-qrcode e tesseract.js), e na Ordem de Serviço a assinatura digital com geração de PDF.",
+          "Desenvolvo e mantenho o RDG Hub (Next.js, ssh2, PostgreSQL), com painel de terminais IoT, logs em tempo real, wallboard de TV, terminal SSH no navegador e login único (SSO) entre os sistemas.",
+          "Monto e mantenho sistemas SCADA em Scada-LTS integrados a equipamentos via MQTT, atendendo cerca de 26 clientes da empresa.",
+          "Criei a interface web do misturador Sigflux (Next.js, Prisma, PostgreSQL e MQTT): receitas, fila de produção, envio de comandos e telemetria em tempo real do equipamento.",
+        ],
+      },
+      {
+        title: "Estagiário de T.I.",
+        org: "Câmara Municipal de Sertãozinho",
+        place: "Sertãozinho, SP",
+        period: "09/2025 – 02/2026",
+        bullets: [
+          "Suporte e infraestrutura: resolução de incidentes de hardware, software e redes para usuários internos.",
+          "Desenvolvimento interno: manutenção de sistemas administrativos e automação de processos por meio de programação.",
+          "Segurança e operação: colaboração em protocolos de segurança da informação e na continuidade dos sistemas.",
+        ],
+      },
+    ],
+    education: [{ title: "Bacharelado em Engenharia de Software", org: "UNAERP, Ribeirão Preto, SP", detail: "Cursando, 6º semestre" }],
+    skills: [
+      ["Mobile", "Kotlin, Swift, Android, macOS, iOS"],
+      ["Backend", "C#/.NET, Node.js, Java (Spring Boot), Python, C, REST APIs, MQTT, NextAuth, ESP32"],
+      ["Frontend", "TypeScript, JavaScript, Next.js, React, Angular, Tailwind CSS"],
+      ["Dados e Cloud", "PostgreSQL, SQL, SQLite, Prisma, Firebase (Firestore), Docker"],
+      ["Ferramentas", "Git, GitHub Actions (CI/CD), SSH (servidores em AWS), Scada-LTS"],
+    ],
+    projects: [
+      { title: "D.I.V.I. / Gateway IIoT (05/2026)", text: "Monitoramento de vibração e controle de motores industriais via ESP32. Gateway em C#/.NET com banco SQLite offline-first e sincronização com Firebase (Firestore), e dashboard em Next.js e TypeScript com dados em tempo real." },
+      { title: "Keep It Up (Kotlin)", text: "Aplicativo Android desenvolvido em Kotlin. github.com/SavioDec/Keep-It-Up" },
+      { title: "Toothless Mouse Follower (Swift, macOS)", text: "Mascote que segue o mouse no macOS, desenvolvido em Swift. github.com/SavioDec/mouse_follower_banguela_MacOs" },
+      { title: "API REST Todo List (Java, Spring Boot)", text: "Lista de tarefas com API REST em Java e Spring Boot. github.com/SavioDec/APIRestTodoList" },
+      { title: "ONG Fucinhos e Bigodes (Next.js)", text: "Plataforma web de adoção de pets em Next.js, TypeScript e Tailwind CSS. github.com/SavioDec/Ong-fucinhos-bigodes" },
+    ],
+    courses: [
+      "JavaScript + TypeScript + Node.js – Programador JS, Dener Troquatte (Udemy)",
+      "JavaScript e TypeScript do básico ao avançado – Luiz Otávio Miranda e Tales Calogi Malaquias (Udemy)",
+      "Desenvolvimento Web com JavaScript, TypeScript e Angular – Jorge Sant Ana (Udemy)",
+      "C#: Formação Básica – Thaise Medeiros (LinkedIn Learning)",
+      "Programador .NET do Zero ao Profissional com a linguagem C# – Diogo Costa (Udemy)",
+    ],
+    languages: ["Português: nativo", "Inglês: avançado"],
+  },
+  en: {
+    ...common,
+    lang: "en",
+    file: "Resume_Savio_Decaro_EN.pdf",
+    docTitle: "Resume - Sávio Mariguela Decaro - Mobile Developer (Kotlin · Swift) | Full Stack",
+    subject: "Resume of a Mobile Developer (Kotlin and Swift) with a Full Stack background",
+    keywords: "Kotlin, Swift, Android, iOS, mobile, REST APIs, C#, .NET, Next.js, TypeScript, PostgreSQL, MQTT, SCADA, Scada-LTS",
+    role: "Mobile Developer (Kotlin · Swift) | Full Stack",
+    h: { summary: "Summary", experience: "Experience", education: "Education", skills: "Skills", projects: "Projects", courses: "Courses", languages: "Languages" },
+    summary:
+      "Mobile Developer focused on Kotlin and Swift (Android and iOS) with a Full Stack background, currently studying Software Engineering. Experienced with REST APIs, C#/.NET, Next.js, TypeScript and PostgreSQL. At RDG Tecnologia em Automação, I maintain production systems used by the whole team, MQTT-based IoT integrations and SCADA systems for about 26 clients.",
+    jobs: [
+      {
+        title: "Software Developer Intern",
+        org: "RDG Tecnologia em Automação",
+        place: "Ribeirão Preto, SP, Brazil",
+        period: "02/2026 – Present",
+        bullets: [
+          "Built and maintain in production a monorepo with 5 applications (Employee Portal, Scheduling, Finance, Work Orders and Inventory) using Next.js, TypeScript, NextAuth and PostgreSQL, used by all 8 employees, deployed with Docker and GitHub Actions CI/CD.",
+          "Built the Time Tracking system with overtime bank, vacations, medical certificates and PDF timesheets, using Next.js, PostgreSQL and automated emails.",
+          "Implemented QR code scanning and label OCR on mobile in the Inventory app (html5-qrcode and tesseract.js), and digital signatures with PDF generation in the Work Orders app.",
+          "Build and maintain RDG Hub (Next.js, ssh2, PostgreSQL), with an IoT terminal dashboard, real-time logs, a TV wallboard, a browser-based SSH terminal and single sign-on (SSO) across systems.",
+          "Build and maintain SCADA systems in Scada-LTS integrated with equipment via MQTT, serving about 26 of the company's clients.",
+          "Created the web interface for the Sigflux mixer (Next.js, Prisma, PostgreSQL and MQTT): recipes, production queue, command dispatch and real-time equipment telemetry.",
+        ],
+      },
+      {
+        title: "IT Intern",
+        org: "Câmara Municipal de Sertãozinho",
+        place: "Sertãozinho, SP, Brazil",
+        period: "09/2025 – 02/2026",
+        bullets: [
+          "Support and infrastructure: resolved hardware, software and network incidents for internal users.",
+          "Internal development: maintained administrative systems and automated processes through programming.",
+          "Security and operations: collaborated on information security protocols and system continuity.",
+        ],
+      },
+    ],
+    education: [{ title: "Bachelor's Degree in Software Engineering", org: "UNAERP, Ribeirão Preto, SP, Brazil", detail: "In progress, 6th semester" }],
+    skills: [
+      ["Mobile", "Kotlin, Swift, Android, macOS, iOS"],
+      ["Backend", "C#/.NET, Node.js, Java (Spring Boot), Python, C, REST APIs, MQTT, NextAuth, ESP32"],
+      ["Frontend", "TypeScript, JavaScript, Next.js, React, Angular, Tailwind CSS"],
+      ["Data and Cloud", "PostgreSQL, SQL, SQLite, Prisma, Firebase (Firestore), Docker"],
+      ["Tools", "Git, GitHub Actions (CI/CD), SSH (servers on AWS), Scada-LTS"],
+    ],
+    projects: [
+      { title: "D.I.V.I. / IIoT Gateway (05/2026)", text: "Vibration monitoring and industrial motor control via ESP32. C#/.NET gateway with an offline-first SQLite database syncing to Firebase (Firestore), and a Next.js and TypeScript dashboard with real-time data." },
+      { title: "Keep It Up (Kotlin)", text: "Android app built with Kotlin. github.com/SavioDec/Keep-It-Up" },
+      { title: "Toothless Mouse Follower (Swift, macOS)", text: "Mouse-following mascot for macOS built with Swift. github.com/SavioDec/mouse_follower_banguela_MacOs" },
+      { title: "Todo List REST API (Java, Spring Boot)", text: "To-do list with a REST API built with Java and Spring Boot. github.com/SavioDec/APIRestTodoList" },
+      { title: "ONG Fucinhos e Bigodes (Next.js)", text: "Pet adoption web platform built with Next.js, TypeScript and Tailwind CSS. github.com/SavioDec/Ong-fucinhos-bigodes" },
+    ],
+    courses: [
+      "JavaScript + TypeScript + Node.js – JavaScript Developer, Dener Troquatte (Udemy)",
+      "JavaScript and TypeScript from Beginner to Advanced – Luiz Otávio Miranda and Tales Calogi Malaquias (Udemy)",
+      "Web Development with JavaScript, TypeScript and Angular – Jorge Sant Ana (Udemy)",
+      "C#: Basic Formation – Thaise Medeiros (LinkedIn Learning)",
+      ".NET Developer from Zero to Professional with C# – Diogo Costa (Udemy)",
+    ],
+    languages: ["Portuguese: native", "English: advanced"],
+  },
+};

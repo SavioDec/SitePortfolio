@@ -1,0 +1,24 @@
+/* Paleta herdada do currículo anterior: vinho + cinza. Texto real, 1 coluna, fontes padrão. */
+:root { --accent: #8b2c2c; --muted: #555; }
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+/* Moldura vinho repetida em cada página (elemento fixo, só decoração). */
+.frame { position: fixed; inset: 0; border-style: solid; border-color: var(--accent); border-width: 4mm 5mm 4mm 5mm; pointer-events: none; z-index: 1; }
+.page { padding: 8mm 14mm; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 9.6pt; line-height: 1.38; color: #222; margin: 0; }
+header { margin-bottom: 4pt; }
+h1 { font-size: 25pt; line-height: 1.05; margin: 0 0 3pt; text-transform: uppercase; letter-spacing: 0.5pt; font-weight: normal; }
+h1 .first { color: var(--accent); font-weight: bold; }
+h1 .last { color: var(--muted); }
+.role { font-size: 11.5pt; font-weight: bold; color: var(--accent); margin: 0 0 4pt; }
+.contact { margin: 0; font-size: 8.8pt; color: var(--muted); word-break: break-word; }
+h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.8pt; color: var(--accent); border-bottom: 1.2px solid var(--accent); padding-bottom: 1.5pt; margin: 10pt 0 5pt; break-after: avoid; }
+p { margin: 0 0 3pt; }
+.entry { margin: 0 0 6pt; }
+.entry-head { font-weight: bold; color: #000; margin: 0 0 1pt; font-size: 10pt; }
+.entry-sub { margin: 0 0 3pt; color: var(--muted); font-style: italic; }
+ul { margin: 0; padding-left: 13pt; }
+li { margin: 0 0 2pt; }
+li::marker { color: var(--accent); }
+strong { color: #000; }
+li, .entry { break-inside: avoid; }

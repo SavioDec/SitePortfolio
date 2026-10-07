@@ -67,6 +67,7 @@ export default async function Curriculo() {
                                         <li>{boldLead(dict.curriculo.job1Topic1)}</li>
                                         <li>{boldLead(dict.curriculo.job1Topic2)}</li>
                                         <li>{boldLead(dict.curriculo.job1Topic3)}</li>
+                                        <li>{boldLead(dict.curriculo.job1Topic4)}</li>
                                     </ul>
                                 </div>
 
@@ -129,7 +130,7 @@ export default async function Curriculo() {
                                 <div>
                                     <p className="text-xs font-semibold text-slate-500 mb-2">{dict.curriculo.stackBackend}</p>
                                     <div className="flex flex-wrap gap-2">
-                                        {["C# / .NET", "Node.js", "Python", "C", "SQL", "PostgreSQL"].map((skill) => (
+                                        {["C# / .NET", "Node.js", "Java", "Python", "C", "SQL", "PostgreSQL", "MQTT"].map((skill) => (
                                             <span key={skill} className="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold rounded-md">
                         {skill}
                       </span>
@@ -140,7 +141,7 @@ export default async function Curriculo() {
                                 <div>
                                     <p className="text-xs font-semibold text-slate-500 mb-2">{dict.curriculo.stackFrontend}</p>
                                     <div className="flex flex-wrap gap-2">
-                                        {["Next.js", "React", "TypeScript", "Git", "AWS", "Scrum"].map((skill) => (
+                                        {["Next.js", "React", "TypeScript", "Git", "Docker", "GitHub Actions", "Scada-LTS", "Scrum"].map((skill) => (
                                             <span key={skill} className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-xs font-bold rounded-md">
                         {skill}
                       </span>
@@ -166,6 +167,10 @@ export default async function Curriculo() {
                         {/* Idiomas */}
                         <Reveal as="section" delay={120} className="pt-2 border-t border-slate-200 dark:border-slate-800">
                             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">{dict.curriculo.languagesTitle}</h2>
+                            <div className="flex justify-between items-center py-2">
+                                <span className="text-sm text-slate-600 dark:text-slate-400">{dict.curriculo.languagePt}</span>
+                                <span className="text-sm font-bold text-slate-900 dark:text-white">{dict.curriculo.languagePtLevel}</span>
+                            </div>
                             <div className="flex justify-between items-center py-2">
                                 <span className="text-sm text-slate-600 dark:text-slate-400">{dict.curriculo.languageEn}</span>
                                 <span className="text-sm font-bold text-slate-900 dark:text-white">{dict.curriculo.languageEnLevel}</span>
