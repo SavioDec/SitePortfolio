@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/src/components/NavBar";
 import React from "react";
 import MouseFollower from "@/src/components/MouseFollower";
+import ScrollProgress from "@/src/components/ScrollProgress";
 import { getLang, getDictionary } from "@/src/utils/lang";
 
 const geistSans = Geist({
@@ -17,8 +18,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sávio Decaro",
-  description: "Portfólio de Sávio Decaro",
+  title: {
+    default: "Sávio Decaro | Mobile Developer · Kotlin & Swift",
+    template: "%s | Sávio Decaro",
+  },
+  description:
+    "Portfólio de Sávio Decaro: desenvolvedor mobile (Kotlin e Swift) com base Full Stack em C#/.NET, Next.js e PostgreSQL.",
+  openGraph: {
+    title: "Sávio Decaro | Mobile Developer · Kotlin & Swift",
+    description:
+      "Portfólio de Sávio Decaro: desenvolvedor mobile (Kotlin e Swift) com base Full Stack.",
+    type: "website",
+    locale: "pt_BR",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default async function RootLayout({
@@ -34,8 +52,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <MouseFollower/>
-      <NavBar lang={lang} dict={dict} />
+        <ScrollProgress />
+        <MouseFollower />
+        <NavBar lang={lang} dict={dict} />
 
         {children}
       </body>

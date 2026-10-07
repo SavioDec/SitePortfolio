@@ -5,24 +5,44 @@ export const pt = {
         curriculo: "Currículo",
         contato: "Contato",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        linkedin: "LinkedIn",
+        home: "Início",
+        menu: "Abrir menu",
+        close: "Fechar menu"
     },
     home: {
-        role: "Full Stack & .NET Engineer",
-        description: "Engenharia de software focada em Aplicações Web Escaláveis e ecossistema .NET. Especialista em construir soluções completas, unindo a performance do C# no backend com a interatividade do Next.js no frontend.",
+        eyebrow: "Engenharia de Software · Ribeirão Preto, SP",
+        role: "Mobile Developer",
+        words: ["Kotlin", "Swift"],
+        description: "Desenvolvedor focado em **apps mobile nativos** com **Kotlin** e **Swift**. Minha base **Full Stack** — C#/.NET, Next.js e PostgreSQL — me permite construir o app e também a API que o sustenta.",
         viewProjects: "Ver Projetos",
         downloadResume: "Baixar Currículo",
-        coreTech: "Tecnologias Principais"
+        coreTech: "Tecnologias Principais",
+        mobileTech: "Mobile",
+        baseTech: "Base Full Stack & Cloud",
+        scrollHint: "Role para explorar"
+    },
+    showcase: {
+        eyebrow: "Meu foco",
+        title: "Dois ecossistemas. Um objetivo: apps incríveis.",
+        kotlinLabel: "Android",
+        kotlinTitle: "Kotlin",
+        kotlinDesc: "Apps nativos para Android. O Keep It Up já nasceu em Kotlin e é o ponto de partida dessa jornada.",
+        swiftLabel: "Apple",
+        swiftTitle: "Swift",
+        swiftDesc: "Do macOS ao iOS. Desenvolvi o Toothless Mouse Follower em Swift e agora levo esse aprendizado para o mundo mobile.",
+        cta: "Ver projetos mobile"
     },
     sobre: {
         title1: "Mais que código, ",
         title2: "eu crio soluções.",
         subtitle: "De estudante de Agronomia a Engenheiro de Software. Apaixonado por entender como as coisas funcionam — seja debaixo do capô de um carro ou nos servidores de uma cloud.",
         journeyTitle: "O Pivot: Do Campo para a Nuvem",
-        journeyP1: "Minha trajetória não foi linear, e isso é minha maior vantagem. Durante 3 anos cursei Agronomia na Moura Lacerda. Lá, aprendi sobre processos, paciência e sistemas complexos da natureza.",
-        journeyP2: "Porém, a curiosidade pela tecnologia falou mais alto. Percebi que eu queria construir as ferramentas que otimizam o mundo. Mudei para Engenharia de Software na UNAERP e me encontrei. Essa bagagem me deu uma visão pragmática: software não serve apenas para rodar, ele precisa resolver problemas reais.",
+        journeyP1: "Minha trajetória não foi linear, e isso é minha maior vantagem. Durante **3 anos cursei Agronomia** na Moura Lacerda. Lá, aprendi sobre processos, paciência e sistemas complexos da natureza.",
+        journeyP2: "Porém, a curiosidade pela tecnologia falou mais alto. Percebi que eu queria construir as ferramentas que otimizam o mundo. Mudei para **Engenharia de Software na UNAERP** e me encontrei. Essa bagagem me deu uma visão pragmática: software não serve apenas para rodar, ele precisa resolver problemas reais.",
         movesTitle: "O que me move hoje",
-        movesP1: "Desenvolvedor Full Stack focado na construção de Web Applications escaláveis. Minha prioridade é a entrega de código limpo e sistemas distribuídos que eliminam gargalos técnicos, garantindo consistência entre ambientes de dev e produção.",
+        movesP1: "Decidi focar em **desenvolvimento mobile**: quero construir **apps nativos em Kotlin e Swift**. Minha experiência Full Stack me permite pensar o produto de ponta a ponta, do app à API e ao banco de dados.",
+        movesP2: "Minha prioridade é a entrega de código limpo e sistemas que eliminam gargalos técnicos, garantindo consistência entre ambientes de dev e produção.",
         hobbiesTitle: "Além do Teclado",
         eletronica: "Eletrônica & IoT",
         eletronicaDesc: "Mexer com hardware me ensina sobre limitações de recursos e otimização extrema.",
@@ -36,17 +56,18 @@ export const pt = {
     contato: {
         title1: "Vamos construir o ",
         title2: "futuro?",
-        subtitle: "Estou disponível para discutir projetos, oportunidades Full Stack ou criações de Websites.",
+        subtitle: "Estou disponível para discutir projetos e oportunidades em desenvolvimento mobile (Kotlin e Swift) ou Full Stack.",
         directChannels: "Canais Diretos",
         email: "Email",
         whatsapp: "WhatsApp",
+        whatsappNumber: "+55 16 99350-8184",
         location: "Ribeirão Preto, SP",
         connect: "Conecte-se",
         linkedin: "LinkedIn",
         github: "GitHub"
     },
     curriculo: {
-        role: "Software Developer",
+        role: "Mobile Developer (Kotlin & Swift) · Full Stack",
         location: "Ribeirão Preto, SP",
         downloadBtn: "Download PDF",
         experienceTitle: "Experiência Profissional",
@@ -67,6 +88,7 @@ export const pt = {
         educationInst: "UNAERP - Ribeirão Preto",
         educationStatus: "Cursando (6º Semestre)",
         stackTitle: "Stack Tecnológica",
+        stackMobile: "Mobile",
         stackBackend: "Backend & Core",
         stackFrontend: "Frontend & Tools",
         coursesTitle: "Cursos & Certificações",
@@ -93,6 +115,25 @@ export const pt = {
         newTab: "Abrir Nova Aba",
         newTabMobile: "Nova Aba",
         unavailable: "Visualização não disponível",
-        unavailableDesc: "Este projeto não possui uma demonstração web ao vivo."
+        unavailableDesc: "Este projeto não possui uma demonstração web ao vivo.",
+        notFound: "Projeto não encontrado",
+        iframeTitle: "Demonstração do projeto",
+        filterAll: "Todos",
+        filterMobile: "Mobile & Apple",
+        filterWeb: "Web",
+        filterBackend: "Backend",
+        filterLabel: "Filtrar projetos",
+        items: {
+            "Keep-It-Up": "Aplicativo mobile desenvolvido em Kotlin.",
+            "mouse_follower_banguela_MacOs": "O Banguela como mascote que segue o mouse no macOS, feito em Swift.",
+            "Ong-fucinhos-bigodes": "Plataforma desenvolvida para a ONG Fucinhos e Bigodes para adoção de pets.",
+            "Jogo-aprendendo-ingles": "Jogo para aprender inglês feito em Angular e Node.js.",
+            "APIRestTodoList": "Lista de tarefas construída com Java Spring Boot utilizando API REST.",
+            "landing-page-Form": "Site de divulgação para empresa de marketing.",
+            "landing-page-Template": "Template moderno de modelo de site.",
+            "Calculadora-de-IMC": "Página simples para cálculo de IMC."
+        } as Record<string, string>
     }
 };
+
+export type Dictionary = typeof pt;

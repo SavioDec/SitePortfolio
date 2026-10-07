@@ -1,28 +1,50 @@
-export const en = {
+import type { Dictionary } from './pt';
+
+export const en: Dictionary = {
     nav: {
         sobre: "About",
         projetos: "Projects",
         curriculo: "Resume",
         contato: "Contact",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        linkedin: "LinkedIn",
+        home: "Home",
+        menu: "Open menu",
+        close: "Close menu"
     },
     home: {
-        role: "Full Stack & .NET Engineer",
-        description: "Software Engineering focused on Scalable Web Applications and the .NET ecosystem. Specialist in building end-to-end solutions, combining C# backend performance with Next.js frontend interactivity.",
+        eyebrow: "Software Engineering · Ribeirão Preto, Brazil",
+        role: "Mobile Developer",
+        words: ["Kotlin", "Swift"],
+        description: "Developer focused on **native mobile apps** with **Kotlin** and **Swift**. My **Full Stack** foundation — C#/.NET, Next.js and PostgreSQL — lets me build the app and the API behind it.",
         viewProjects: "View Projects",
         downloadResume: "Download Resume",
-        coreTech: "Core Technologies"
+        coreTech: "Core Technologies",
+        mobileTech: "Mobile",
+        baseTech: "Full Stack & Cloud foundation",
+        scrollHint: "Scroll to explore"
+    },
+    showcase: {
+        eyebrow: "My focus",
+        title: "Two ecosystems. One goal: great apps.",
+        kotlinLabel: "Android",
+        kotlinTitle: "Kotlin",
+        kotlinDesc: "Native Android apps. Keep It Up was born in Kotlin and is the starting point of this journey.",
+        swiftLabel: "Apple",
+        swiftTitle: "Swift",
+        swiftDesc: "From macOS to iOS. I built Toothless Mouse Follower in Swift and now bring that learning to the mobile world.",
+        cta: "See mobile projects"
     },
     sobre: {
         title1: "More than code, ",
         title2: "I build solutions.",
         subtitle: "From Agronomy student to Software Engineer. Passionate about understanding how things work — whether under the hood of a car or on cloud servers.",
         journeyTitle: "The Pivot: From Field to Cloud",
-        journeyP1: "My journey hasn't been linear, and that's my biggest advantage. For 3 years, I studied Agronomy at Moura Lacerda. There, I learned about processes, patience, and the complex systems of nature.",
-        journeyP2: "However, my curiosity for technology was louder. I realized I wanted to build the tools that optimize the world. I switched to Software Engineering at UNAERP and found my calling. This background gave me a pragmatic view: software isn't just meant to run, it needs to solve real problems.",
+        journeyP1: "My journey hasn't been linear, and that's my biggest advantage. For **3 years, I studied Agronomy** at Moura Lacerda. There, I learned about processes, patience, and the complex systems of nature.",
+        journeyP2: "However, my curiosity for technology was louder. I realized I wanted to build the tools that optimize the world. I switched to **Software Engineering at UNAERP** and found my calling. This background gave me a pragmatic view: software isn't just meant to run, it needs to solve real problems.",
         movesTitle: "What drives me today",
-        movesP1: "Full Stack Developer focused on building scalable Web Applications. My priority is delivering clean code and distributed systems that eliminate technical bottlenecks, ensuring consistency between dev and production environments.",
+        movesP1: "I decided to focus on **mobile development**: I want to build **native apps in Kotlin and Swift**. My Full Stack experience lets me think about the product end to end, from the app to the API and the database.",
+        movesP2: "My priority is delivering clean code and systems that eliminate technical bottlenecks, ensuring consistency between dev and production environments.",
         hobbiesTitle: "Beyond the Keyboard",
         eletronica: "Electronics & IoT",
         eletronicaDesc: "Tinkering with hardware teaches me about resource constraints and extreme optimization.",
@@ -36,17 +58,18 @@ export const en = {
     contato: {
         title1: "Let's build the ",
         title2: "future?",
-        subtitle: "I'm available to discuss projects, Full Stack opportunities, or Web creation.",
+        subtitle: "I'm available to discuss projects and opportunities in mobile development (Kotlin and Swift) or Full Stack.",
         directChannels: "Direct Channels",
         email: "Email",
         whatsapp: "WhatsApp",
+        whatsappNumber: "+55 16 99350-8184",
         location: "Ribeirão Preto, SP - Brazil",
         connect: "Connect",
         linkedin: "LinkedIn",
         github: "GitHub"
     },
     curriculo: {
-        role: "Software Developer",
+        role: "Mobile Developer (Kotlin & Swift) · Full Stack",
         location: "Ribeirão Preto, SP - Brazil",
         downloadBtn: "Download PDF",
         experienceTitle: "Professional Experience",
@@ -67,6 +90,7 @@ export const en = {
         educationInst: "UNAERP - Ribeirão Preto",
         educationStatus: "Undergraduate (6th Semester)",
         stackTitle: "Tech Stack",
+        stackMobile: "Mobile",
         stackBackend: "Backend & Core",
         stackFrontend: "Frontend & Tools",
         coursesTitle: "Courses & Certifications",
@@ -93,6 +117,23 @@ export const en = {
         newTab: "Open New Tab",
         newTabMobile: "New Tab",
         unavailable: "Preview unavailable",
-        unavailableDesc: "This project doesn't have a live web demo."
+        unavailableDesc: "This project doesn't have a live web demo.",
+        notFound: "Project not found",
+        iframeTitle: "Project demo",
+        filterAll: "All",
+        filterMobile: "Mobile & Apple",
+        filterWeb: "Web",
+        filterBackend: "Backend",
+        filterLabel: "Filter projects",
+        items: {
+            "Keep-It-Up": "Mobile app built with Kotlin.",
+            "mouse_follower_banguela_MacOs": "Toothless as a mouse-following pet for macOS, built with Swift.",
+            "Ong-fucinhos-bigodes": "Platform built for the Fucinhos e Bigodes NGO to promote pet adoption.",
+            "Jogo-aprendendo-ingles": "A game to learn English built with Angular and Node.js.",
+            "APIRestTodoList": "Todo list built with Java Spring Boot using a REST API.",
+            "landing-page-Form": "Promotional website for a marketing company.",
+            "landing-page-Template": "Modern website template.",
+            "Calculadora-de-IMC": "Simple page to calculate BMI."
+        }
     }
 };

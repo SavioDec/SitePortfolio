@@ -1,44 +1,46 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/src/utils/lang";
+import { rich } from "@/src/utils/rich";
+import Reveal from "@/src/components/Reveal";
 
 export default async function Sobre() {
     const dict = await getDictionary();
 
     return (
-        <section className="w-full bg-slate-50 dark:bg-slate-950 transition-colors duration-300 min-h-screen">
-            <div className="max-w-5xl mx-auto px-6 py-20 lg:py-32">
+        <section className="w-full bg-slate-50 dark:bg-slate-950 min-h-screen">
+            <div className="max-w-5xl mx-auto px-6 pt-28 pb-20 lg:pt-36 lg:pb-32">
 
                 {/* Header: Quem sou eu (Resumo de impacto) */}
-                <div className="mb-16">
-                    <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+                <Reveal className="mb-16">
+                    <h1 className="text-[clamp(2.25rem,8vw,4.5rem)] font-black leading-[1.05] text-slate-900 dark:text-white mb-6 tracking-tight">
                         {dict.sobre.title1} <br />
                         <span className="text-red-600 dark:text-red-500">{dict.sobre.title2}</span>
                     </h1>
                     <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
                         {dict.sobre.subtitle}
                     </p>
-                </div>
+                </Reveal>
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
 
                     {/* Coluna 1: A Jornada (Storytelling) */}
                     <div className="space-y-10">
 
-                        <div className="prose prose-slate dark:prose-invert prose-lg text-slate-600 dark:text-slate-300">
+                        <Reveal className="space-y-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300 [&_strong]:text-slate-900 dark:[&_strong]:text-white">
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                                 {dict.sobre.journeyTitle}
                             </h3>
-                            <p dangerouslySetInnerHTML={{ __html: dict.sobre.journeyP1.replace('3 anos cursei Agronomia', '<strong>3 anos cursei Agronomia</strong>').replace('3 years, I studied Agronomy', '<strong>3 years, I studied Agronomy</strong>') }}></p>
-                            <p dangerouslySetInnerHTML={{ __html: dict.sobre.journeyP2.replace('Engenharia de Software na UNAERP', '<strong>Engenharia de Software na UNAERP</strong>').replace('Software Engineering at UNAERP', '<strong>Software Engineering at UNAERP</strong>') }}></p>
-                        </div>
+                            <p>{rich(dict.sobre.journeyP1)}</p>
+                            <p>{rich(dict.sobre.journeyP2)}</p>
+                        </Reveal>
 
-                        <div className="prose prose-slate dark:prose-invert prose-lg text-slate-600 dark:text-slate-300">
+                        <Reveal className="space-y-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300 [&_strong]:text-slate-900 dark:[&_strong]:text-white">
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                                 {dict.sobre.movesTitle}
                             </h3>
-                            <p dangerouslySetInnerHTML={{ __html: dict.sobre.movesP1.replace('Web Applications escaláveis', '<strong>Web Applications escaláveis</strong>').replace('scalable Web Applications', '<strong>scalable Web Applications</strong>') }}></p>
-                        </div>
+                            <p>{rich(dict.sobre.movesP1)}</p>
+                            <p>{rich(dict.sobre.movesP2)}</p>
+                        </Reveal>
 
                     </div>
 
@@ -46,7 +48,7 @@ export default async function Sobre() {
                     <div className="space-y-8">
 
                         {/* Card: Interesses */}
-                        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none relative overflow-hidden group">
+                        <Reveal delay={150} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none relative overflow-hidden group">
                             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                                 {/* Ícone decorativo abstrato */}
                                 <svg className="w-32 h-32 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l-12 12 12 12 12-12-12-12zm0 18l-6-6 6-6 6 6-6 6z"/></svg>
@@ -98,21 +100,21 @@ export default async function Sobre() {
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </Reveal>
 
                         {/* Call to Action para o Currículo */}
-                        <div className="bg-slate-100 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 text-center">
+                        <Reveal delay={250} className="bg-slate-100 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 text-center">
                             <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm">
                                 {dict.sobre.ctaDesc}
                             </p>
                             <Link
                                 href="/curriculo"
-                                className="inline-flex items-center justify-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all w-full"
+                                className="inline-flex items-center justify-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 min-h-12 rounded-xl active:scale-95 font-bold hover:opacity-90 transition-all w-full"
                             >
                                 {dict.sobre.ctaButton}
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                             </Link>
-                        </div>
+                        </Reveal>
 
                     </div>
                 </div>

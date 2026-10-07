@@ -16,21 +16,21 @@
 
 /* Roteamento de Assets Baseado em Estado (FSM) */
 .pointer[data-state="sitting"] {
-    background-image: url('/BANGUELA_SENTADO.png');
+    background-image: url('/BANGUELA_SENTADO.webp');
 }
 
 .pointer[data-state="getting_up"] {
-    background-image: url('/BANGUELA_LEVANTANDO.png');
+    background-image: url('/BANGUELA_LEVANTANDO.webp');
 }
 
 .pointer[data-state="walking"] {
-    background-image: url('/BANGUELA_ANDANDO.png');
+    background-image: url('/BANGUELA_ANDANDO.webp');
 }
 
 .pointer[data-state="flying"] {
-    background-image: url('/BANGUELA_VOANDO.png');
+    background-image: url('/BANGUELA_VOANDO.webp');
 }
 
 .pointer[data-state="sitting_down"] {
-    background-image: url('/BANGUELA_SENTANDO.png');
+    background-image: url('/BANGUELA_SENTANDO.webp');
 }

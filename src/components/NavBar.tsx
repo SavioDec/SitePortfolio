@@ -1,13 +1,45 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import type { Dictionary } from "@/src/i18n/pt";
 
-export default function NavBar({ lang, dict }: { lang: 'pt' | 'en', dict: any }) {
+const GITHUB_URL = "https://github.com/SavioDec";
+const LINKEDIN_URL = "https://www.linkedin.com/in/savio-mariguela-decaro-1a06b1279/";
+
+function Logo() {
+    return (
+        <svg width="112" height="32" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <linearGradient id="red-core" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="10%" stopColor="#EF4444" />
+                    <stop offset="90%" stopColor="#9F1239" />
+                </linearGradient>
+            </defs>
+            <text
+                x="50%"
+                y="55%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                fontFamily="monospace"
+                fontWeight="900"
+                fontSize="26"
+                letterSpacing="-0.5"
+            >
+                <tspan fill="#9333ea">&lt;/</tspan>
+                <tspan fill="url(#red-core)" dx="6">S M D</tspan>
+                <tspan fill="#9333ea" dx="6">&gt;</tspan>
+            </text>
+        </svg>
+    );
+}
+
+export default function NavBar({ lang, dict }: { lang: "pt" | "en"; dict: Dictionary }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
 
     const navLinks = [
         { name: dict.nav.sobre, href: "/sobre" },
@@ -16,203 +48,186 @@ export default function NavBar({ lang, dict }: { lang: 'pt' | 'en', dict: any })
         { name: dict.nav.contato, href: "/contato" },
     ];
 
-    const toggleMenu = () => setIsOpen(!isOpen);
+    const closeMenu = () => setIsOpen(false);
 
     const toggleLang = () => {
-        const newLang = lang === 'pt' ? 'en' : 'pt';
-        document.cookie = `NEXT_LOCALE=${newLang}; path=/`;
+        const newLang = lang === "pt" ? "en" : "pt";
+        document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000; samesite=lax`;
         router.refresh();
     };
 
-    // Monitora o scroll para alterar o estado
+    // Só ganha mais opacidade/borda ao rolar (a barra nunca some)
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 20) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        const onScroll = () => setIsScrolled(window.scrollY > 8);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    const linkStyle = "transition-transform duration-200 hover:scale-110 active:scale-95 block";
+    // Trava o scroll do body e fecha com ESC enquanto o menu está aberto
+    useEffect(() => {
+        if (!isOpen) return;
+        const previous = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setIsOpen(false);
+        };
+        window.addEventListener("keydown", onKey);
+        return () => {
+            document.body.style.overflow = previous;
+            window.removeEventListener("keydown", onKey);
+        };
+    }, [isOpen]);
 
-    // Define quando a barra deve estar completamente expandida
-    const isExpanded = !isScrolled || isOpen;
+    const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
     return (
-        <nav
-            className={`
-            fixed top-4 left-0 right-0 z-50 mx-4 max-w-7xl md:mx-auto 
-            flex items-center justify-between px-6 py-3 rounded-full text-slate-900 dark:text-white text-sm 
-            transition-all duration-300 ease-in-out
-            ${isExpanded
-                ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/80 shadow-lg shadow-black/5 dark:shadow-black/20 pointer-events-auto"
-                : "bg-transparent border-transparent shadow-none pointer-events-none"
-            }
-        `}
-        >
-
-            {/* 1. LOGO */}
-            <Link
-                href="/"
-                className={`
-                flex items-center hover:opacity-80 transition-all duration-300 shrink-0
-                ${isExpanded
-                    ? "opacity-100 translate-x-0 pointer-events-auto"
-                    : "opacity-0 -translate-x-10 pointer-events-none"
-                }
-            `}
+        <header className="fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]" data-menu-open={isOpen}>
+            <nav
+                aria-label="Principal"
+                className={`relative z-10 transition-[background-color,border-color,backdrop-filter] duration-500 border-b backdrop-blur-xl backdrop-saturate-150 ${
+                    isScrolled || isOpen
+                        ? "bg-white/80 dark:bg-black/70 border-slate-200/70 dark:border-white/10"
+                        : "bg-white/40 dark:bg-black/30 border-transparent"
+                }`}
             >
-                <div className="relative w-10 h-10 md:w-12 md:h-12">
-                    <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="red-core" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="10%" stopColor="#EF4444"/>
-                                <stop offset="90%" stopColor="#9F1239"/>
-                            </linearGradient>
-                            <filter id="tech-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <text
-                            x="50%"
-                            y="55%"
-                            dominantBaseline="middle"
-                            textAnchor="middle"
-                            fontFamily="monospace"
-                            fontWeight="900"
-                            fontSize="26"
-                            letterSpacing="-0.5"
-                            filter="url(#tech-glow)"
-                        >
-                            <tspan fill="#9333ea" className="group-hover:fill-purple-400 transition-colors">&lt;/</tspan>
-                            <tspan fill="url(#red-core)" dx="6" className="group-hover:brightness-110 transition-all">S M D</tspan>
-                            <tspan fill="#9333ea" dx="6" className="group-hover:fill-purple-400 transition-colors">&gt;</tspan>
-                        </text>
-                    </svg>
-                </div>
-            </Link>
-
-            {/* 2. DESKTOP MENU */}
-            <div className={`
-            hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 transition-all duration-300
-            ${!isScrolled
-                ? "opacity-100 pointer-events-auto translate-y-0"
-                : "opacity-0 pointer-events-none -translate-y-2"
-            }
-        `}>
-                {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className={`${linkStyle} font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white`}>
-                        {link.name}
+                <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4 sm:px-6">
+                    {/* Logo */}
+                    <Link
+                        href="/"
+                        onClick={closeMenu}
+                        aria-label={dict.nav.home}
+                        className="flex items-center transition-opacity hover:opacity-70 active:scale-95 min-h-11"
+                    >
+                        <Logo />
                     </Link>
-                ))}
-            </div>
 
-            {/* 3. DESKTOP ACTIONS */}
-            <div className={`
-            ${!isScrolled ? "hidden md:flex" : "hidden"} items-center gap-4 transition-all duration-300
-        `}>
-                <button
-                    onClick={toggleLang}
-                    className="flex items-center justify-center w-9 h-9 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full font-bold text-xs transition-all hover:scale-105 active:scale-95 text-slate-700 dark:text-white"
-                >
-                    {lang === 'pt' ? 'EN' : 'PT'}
-                </button>
-                <a href="https://github.com/saviodec" target="_blank" rel="noopener noreferrer">
-                    <button
-                        className="border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500 px-5 py-2 rounded-full text-sm font-medium transition-all hover:scale-105 active:scale-95 text-slate-700 dark:text-white">
-                        {dict.nav.github}
-                    </button>
-                </a>
-                <a href="https://www.linkedin.com/in/savio-mariguela-decaro-1a06b1279/" target="_blank" rel="noopener noreferrer">
-                    <button
-                        className="bg-red-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-red-500 transition-all hover:scale-105 active:scale-95 shadow-[0px_0px_15px_rgba(220,38,38,0.4)] hover:shadow-[0px_0px_20px_rgba(220,38,38,0.6)]">
-                        {dict.nav.linkedin}
-                    </button>
-                </a>
-            </div>
+                    {/* Links (desktop) */}
+                    <ul className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+                        {navLinks.map((link) => {
+                            const active = isActive(link.href);
+                            return (
+                                <li key={link.href}>
+                                    <Link
+                                        href={link.href}
+                                        aria-current={active ? "page" : undefined}
+                                        className={`group relative block px-3.5 py-2 text-[13px] font-medium transition-colors duration-300 ${
+                                            active
+                                                ? "text-slate-900 dark:text-white"
+                                                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                                        }`}
+                                    >
+                                        {link.name}
+                                        <span
+                                            className={`pointer-events-none absolute inset-x-3.5 -bottom-px h-px origin-center bg-red-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                                                active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                            }`}
+                                        />
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
 
-            {/* 4. HAMBÚRGUER */}
-            <div className="flex items-center gap-3 ml-auto md:hidden pointer-events-auto">
-                <button
-                    onClick={toggleLang}
-                    className={`
-                    flex items-center justify-center w-9 h-9 border rounded-full font-bold text-xs transition-all active:scale-90
-                    ${!isExpanded
-                        ? "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-lg"
-                        : "border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-white"
-                    }
-                    `}
-                >
-                    {lang === 'pt' ? 'EN' : 'PT'}
-                </button>
-                <button
-                    onClick={toggleMenu}
-                    className={`
-                    flex p-2 transition-all duration-300 active:scale-90 rounded-full
-                    ${!isExpanded
-                        ? "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-lg"
-                        : "text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
-                    }
-                `}
-                    aria-label="Menu"
-                >
-                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        {isOpen ? (
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                        ) : (
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                        )}
-                    </svg>
-                </button>
-            </div>
-
-            {/* 5. MOBILE / DESKTOP DROPDOWN */}
-            {isOpen && (
-                <div className="absolute top-full left-0 right-0 mt-3 p-1 pointer-events-auto">
-                    <div
-                        className="bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border border-slate-200/50 dark:border-slate-800 rounded-2xl p-6 flex flex-col items-center gap-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-300 origin-top">
-
-                        {/* Links de Navegação */}
-                        <div className="flex flex-col gap-6 w-full text-center">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={`${link.href}-mobile`}
-                                    href={link.href}
-                                    onClick={toggleMenu}
-                                    className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 transition-colors py-2 active:scale-95"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
-
-                        <hr className="w-full border-slate-200 dark:border-slate-800"/>
-
-                        {/* Ações Mobile */}
-                        <div className="flex flex-col w-full gap-3">
-                            <a href="https://github.com/saviodec" target="_blank" rel="noopener noreferrer" className="w-full">
-                                <button className="w-full border border-slate-300 dark:border-slate-600 py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition active:scale-[0.98] font-medium text-slate-700 dark:text-white">
-                                    {dict.nav.github}
-                                </button>
+                    {/* Ações */}
+                    <div className="flex items-center gap-2">
+                        <div className="hidden md:flex items-center gap-2">
+                            <a
+                                href={GITHUB_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-1.5 text-[13px] font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                            >
+                                {dict.nav.github}
                             </a>
-                            <a href="https://www.linkedin.com/in/savio-mariguela-decaro-1a06b1279/" target="_blank" rel="noopener noreferrer" className="w-full">
-                                <button className="w-full bg-red-600 text-white py-3.5 rounded-xl font-bold hover:bg-red-500 transition active:scale-[0.98] shadow-lg shadow-red-900/20">
-                                    {dict.nav.linkedin}
-                                </button>
+                            <a
+                                href={LINKEDIN_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-full bg-red-600 px-3.5 py-1.5 text-[13px] font-medium text-white transition-all hover:bg-red-500 active:scale-95"
+                            >
+                                {dict.nav.linkedin}
                             </a>
                         </div>
+
+                        <button
+                            onClick={toggleLang}
+                            aria-label={lang === "pt" ? "Switch to English" : "Mudar para Português"}
+                            className="flex h-9 min-w-9 items-center justify-center rounded-full border border-slate-300/80 dark:border-white/20 px-2 text-xs font-bold text-slate-700 dark:text-white transition-all hover:bg-slate-100 dark:hover:bg-white/10 active:scale-90"
+                        >
+                            {lang === "pt" ? "EN" : "PT"}
+                        </button>
+
+                        {/* Hambúrguer animado (mobile) */}
+                        <button
+                            onClick={() => setIsOpen((v) => !v)}
+                            aria-expanded={isOpen}
+                            aria-controls="mobile-menu"
+                            aria-label={isOpen ? dict.nav.close : dict.nav.menu}
+                            className="md:hidden relative flex h-11 w-11 items-center justify-center -mr-2 active:scale-90 transition-transform"
+                        >
+                            <span
+                                className={`absolute h-[1.5px] w-5 rounded bg-slate-900 dark:bg-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                                    isOpen ? "rotate-45" : "-translate-y-[4px]"
+                                }`}
+                            />
+                            <span
+                                className={`absolute h-[1.5px] w-5 rounded bg-slate-900 dark:bg-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                                    isOpen ? "-rotate-45" : "translate-y-[4px]"
+                                }`}
+                            />
+                        </button>
                     </div>
                 </div>
-            )}
-        </nav>
+            </nav>
+
+            {/* Menu mobile em tela cheia */}
+            <div
+                id="mobile-menu"
+                inert={!isOpen}
+                aria-hidden={!isOpen}
+                className={`md:hidden fixed inset-0 z-0 flex flex-col bg-white/90 dark:bg-black/90 backdrop-blur-2xl px-6 pt-[calc(3.5rem+env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] transition-[opacity,visibility] duration-500 ${
+                    isOpen ? "visible opacity-100" : "invisible opacity-0"
+                }`}
+            >
+                <ul className="flex-1 flex flex-col justify-center gap-1">
+                    {[{ name: dict.nav.home, href: "/" }, ...navLinks].map((link, i) => (
+                        <li key={link.href} className="menu-link" style={{ "--i": i } as React.CSSProperties}>
+                            <Link
+                                href={link.href}
+                                onClick={closeMenu}
+                                aria-current={pathname === link.href ? "page" : undefined}
+                                className={`block py-3 text-4xl sm:text-5xl font-bold tracking-tight transition-colors active:opacity-60 ${
+                                    isActive(link.href) && link.href !== "/" || pathname === link.href
+                                        ? "text-red-600 dark:text-red-500"
+                                        : "text-slate-900 dark:text-white"
+                                }`}
+                            >
+                                {link.name}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="menu-link flex gap-3" style={{ "--i": 6 } as React.CSSProperties}>
+                    <a
+                        href={GITHUB_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 min-h-12 flex items-center justify-center rounded-2xl border border-slate-300 dark:border-white/20 font-semibold text-slate-800 dark:text-white active:scale-[0.97] transition-transform"
+                    >
+                        {dict.nav.github}
+                    </a>
+                    <a
+                        href={LINKEDIN_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 min-h-12 flex items-center justify-center rounded-2xl bg-red-600 font-semibold text-white active:scale-[0.97] transition-transform"
+                    >
+                        {dict.nav.linkedin}
+                    </a>
+                </div>
+            </div>
+        </header>
     );
 }

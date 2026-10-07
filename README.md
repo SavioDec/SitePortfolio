@@ -41,3 +41,12 @@ Siga os passos abaixo para testar a aplicação no seu ambiente de desenvolvimen
 
 4. **Acesse a aplicação:**
    Abra o seu navegador e acesse [http://localhost:3000](http://localhost:3000). O servidor recarregará automaticamente caso você altere o código.
+
+
+## Novidades
+
+- Posicionamento atualizado para **Mobile Developer (Kotlin & Swift)** com base Full Stack.
+- Nova NavBar estilo Apple (barra fina com blur, menu mobile em tela cheia).
+- Animações guiadas por scroll: reveal, parallax do mockup de celular e seção sticky Kotlin/Android x Swift/iOS (CSS + IntersectionObserver, sem bibliotecas extras). Respeita `prefers-reduced-motion`.
+- Filtro de projetos por categoria (Mobile & Apple, Web, Backend).
+- Textos PT/EN em `src/i18n`; trechos em negrito usam `**marcação**` (ver `src/utils/rich.tsx`).

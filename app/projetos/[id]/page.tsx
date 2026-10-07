@@ -8,8 +8,10 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     const { id } = await params; // Aguarda o ID
     const project = projects.find((p) => p.id === id);
 
+    const dict = await getDictionary();
+
     return {
-        title: project ? `${project.title} | Sávio Decaro` : "Projeto não encontrado",
+        title: project ? project.title : dict.projetos.notFound,
     };
 }
 
@@ -23,10 +25,10 @@ export default async function ProjetoDetalhe({ params }: { params: Promise<{ id:
     }
 
     return (
-        <main className="w-full h-screen flex flex-col bg-slate-50 dark:bg-slate-950 overflow-hidden">
+        <main className="w-full h-[100dvh] flex flex-col bg-slate-50 dark:bg-slate-950 overflow-hidden">
             
             {/* Header da Barra do Iframe */}
-            <header className="h-16 flex items-center justify-between px-4 sm:px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shrink-0 shadow-sm z-10 pt-[env(safe-area-inset-top)]">
+            <header className="h-16 mt-12 flex items-center justify-between px-4 sm:px-6 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shrink-0 shadow-sm z-10">
                 
                 {/* Botão Voltar */}
                 <Link
@@ -79,7 +81,7 @@ export default async function ProjetoDetalhe({ params }: { params: Promise<{ id:
                     <iframe
                         src={project.demoUrl}
                         className="w-full h-full border-none absolute inset-0"
-                        title={`Demonstração do projeto ${project.title}`}
+                        title={`${dict.projetos.iframeTitle} ${project.title}`}
                         sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
                     />
                 ) : (

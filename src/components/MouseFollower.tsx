@@ -5,6 +5,15 @@ import styles from "./MouseFollower.module.css";
 
 type FollowerState = 'sitting' | 'getting_up' | 'walking' | 'flying' | 'sitting_down';
 
+const CONFIG = {
+    STOP_DISTANCE: 50,      
+    WAKE_DISTANCE: 65,      
+    FLY_DISTANCE: 250,      
+    WALK_SPEED: 2.7,        
+    FLY_SPEED: 5.0,         
+    TRANSITION_MS: 300  
+};
+
 export default function MouseFollower() {
     const pointerRef = useRef<HTMLDivElement>(null);
     const mousePos = useRef({ x: 0, y: 0 }); 
@@ -17,22 +26,21 @@ export default function MouseFollower() {
     const stateEndTime = useRef<number>(0); 
     const rafId = useRef<number>(0);
 
-    const CONFIG = {
-        STOP_DISTANCE: 50,      
-        WAKE_DISTANCE: 65,      
-        FLY_DISTANCE: 250,      
-        WALK_SPEED: 2.7,        
-        FLY_SPEED: 5.0,         
-        TRANSITION_MS: 300  
-    };
-
     useEffect(() => {
+        // Só faz sentido com mouse de verdade e sem preferência por menos movimento
+        const canFollow = window.matchMedia("(hover: hover) and (pointer: fine)").matches
+            && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!canFollow) {
+            pointerRef.current?.style.setProperty("display", "none");
+            return;
+        }
+
         const assets = [
-            '/BANGUELA_ANDANDO.png',
-            '/BANGUELA_LEVANTANDO.png',
-            '/BANGUELA_SENTADO.png',
-            '/BANGUELA_SENTANDO.png',
-            '/BANGUELA_VOANDO.png'
+            '/BANGUELA_ANDANDO.webp',
+            '/BANGUELA_LEVANTANDO.webp',
+            '/BANGUELA_SENTADO.webp',
+            '/BANGUELA_SENTANDO.webp',
+            '/BANGUELA_VOANDO.webp'
         ];
         assets.forEach(src => {
             const img = new Image();

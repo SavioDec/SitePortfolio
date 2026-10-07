@@ -1,17 +1,18 @@
-import Link from "next/link";
 import { getDictionary } from "@/src/utils/lang";
+import { boldLead } from "@/src/utils/rich";
+import Reveal from "@/src/components/Reveal";
 
 export default async function Curriculo() {
     const dict = await getDictionary();
 
     return (
-        <section className="w-full bg-slate-50 dark:bg-slate-950 transition-colors duration-300 min-h-screen">
-            <div className="max-w-6xl mx-auto px-6 py-20 lg:py-32">
+        <section className="w-full bg-slate-50 dark:bg-slate-950 min-h-screen">
+            <div className="max-w-6xl mx-auto px-6 pt-28 pb-20 lg:pt-36 lg:pb-32">
 
                 {/* Header do Currículo (Nome + Download) */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-slate-200 dark:border-slate-800 pb-8">
+                <Reveal className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-slate-200 dark:border-slate-800 pb-8">
                     <div>
-                        <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-2">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white mb-2">
                             Sávio Mariguela Decaro
                         </h1>
                         <p className="text-lg text-red-600 dark:text-red-400 font-medium">
@@ -38,14 +39,14 @@ export default async function Curriculo() {
                             {dict.curriculo.downloadBtn}
                     </a>
                     </div>
-                </div>
+                </Reveal>
 
                 <div className="grid lg:grid-cols-3 gap-12">
 
                     {/* COLUNA ESQUERDA (Principal): Experiência Profissional */}
                     <div className="lg:col-span-2 space-y-12">
 
-                        <section>
+                        <Reveal as="section">
                             <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                                 <span className="w-8 h-1 bg-red-600 rounded-full"></span>
                                 {dict.curriculo.experienceTitle}
@@ -63,9 +64,9 @@ export default async function Curriculo() {
                                     <p className="text-red-600 dark:text-red-400 font-medium mb-4">{dict.curriculo.job1Company}</p>
 
                                     <ul className="space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed list-disc marker:text-red-500 pl-4">
-                                        <li dangerouslySetInnerHTML={{ __html: dict.curriculo.job1Topic1.replace(/^([^:]+:)/, '<strong>$1</strong>') }}></li>
-                                        <li dangerouslySetInnerHTML={{ __html: dict.curriculo.job1Topic2.replace(/^([^:]+:)/, '<strong>$1</strong>') }}></li>
-                                        <li dangerouslySetInnerHTML={{ __html: dict.curriculo.job1Topic3.replace(/^([^:]+:)/, '<strong>$1</strong>') }}></li>
+                                        <li>{boldLead(dict.curriculo.job1Topic1)}</li>
+                                        <li>{boldLead(dict.curriculo.job1Topic2)}</li>
+                                        <li>{boldLead(dict.curriculo.job1Topic3)}</li>
                                     </ul>
                                 </div>
 
@@ -79,13 +80,13 @@ export default async function Curriculo() {
                                     <p className="text-slate-500 dark:text-slate-400 font-medium mb-4">{dict.curriculo.job2Company}</p>
 
                                     <ul className="space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed list-disc marker:text-slate-400 pl-4">
-                                        <li dangerouslySetInnerHTML={{ __html: dict.curriculo.job2Topic1.replace(/^([^:]+:)/, '<strong>$1</strong>') }}></li>
-                                        <li dangerouslySetInnerHTML={{ __html: dict.curriculo.job2Topic2.replace(/^([^:]+:)/, '<strong>$1</strong>') }}></li>
-                                        <li dangerouslySetInnerHTML={{ __html: dict.curriculo.job2Topic3.replace(/^([^:]+:)/, '<strong>$1</strong>') }}></li>
+                                        <li>{boldLead(dict.curriculo.job2Topic1)}</li>
+                                        <li>{boldLead(dict.curriculo.job2Topic2)}</li>
+                                        <li>{boldLead(dict.curriculo.job2Topic3)}</li>
                                     </ul>
                                 </div>
                             </div>
-                        </section>
+                        </Reveal>
 
                     </div>
 
@@ -93,7 +94,7 @@ export default async function Curriculo() {
                     <div className="space-y-10">
 
                         {/* Educação */}
-                        <section className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
+                        <Reveal as="section" delay={120} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm">
                             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>
                                 {dict.curriculo.educationTitle}
@@ -107,12 +108,23 @@ export default async function Curriculo() {
                   </span>
                                 </div>
                             </div>
-                        </section>
+                        </Reveal>
 
                         {/* Hard Skills */}
-                        <section>
+                        <Reveal as="section" delay={200}>
                             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6">{dict.curriculo.stackTitle}</h2>
                             <div className="space-y-6">
+
+                                <div>
+                                    <p className="text-xs font-semibold text-slate-500 mb-2">{dict.curriculo.stackMobile}</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {["Kotlin", "Swift", "Android", "iOS"].map((skill) => (
+                                            <span key={skill} className="px-3 py-1 bg-gradient-to-r from-red-600 to-orange-500 text-white text-xs font-bold rounded-md">
+                        {skill}
+                      </span>
+                                        ))}
+                                    </div>
+                                </div>
 
                                 <div>
                                     <p className="text-xs font-semibold text-slate-500 mb-2">{dict.curriculo.stackBackend}</p>
@@ -136,10 +148,10 @@ export default async function Curriculo() {
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </Reveal>
 
                         {/* Cursos Complementares */}
-                        <section className="pt-6 border-t border-slate-200 dark:border-slate-800">
+                        <Reveal as="section" delay={120} className="pt-6 border-t border-slate-200 dark:border-slate-800">
                             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">{dict.curriculo.coursesTitle}</h2>
                             <ul className="space-y-4">
                                 {dict.curriculo.courses.map((curso, i) => (
@@ -149,16 +161,16 @@ export default async function Curriculo() {
                                     </li>
                                 ))}
                             </ul>
-                        </section>
+                        </Reveal>
 
                         {/* Idiomas */}
-                        <section className="pt-2 border-t border-slate-200 dark:border-slate-800">
+                        <Reveal as="section" delay={120} className="pt-2 border-t border-slate-200 dark:border-slate-800">
                             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4">{dict.curriculo.languagesTitle}</h2>
                             <div className="flex justify-between items-center py-2">
                                 <span className="text-sm text-slate-600 dark:text-slate-400">{dict.curriculo.languageEn}</span>
                                 <span className="text-sm font-bold text-slate-900 dark:text-white">{dict.curriculo.languageEnLevel}</span>
                             </div>
-                        </section>
+                        </Reveal>
 
                     </div>
                 </div>
