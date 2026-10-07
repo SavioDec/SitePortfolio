@@ -118,7 +118,7 @@ export default function Showcase({ copy }: { copy: ShowcaseCopy }) {
                     {/* Celular */}
                     <div className="order-1 lg:order-2 flex justify-center">
                         <div className="showcase-phone">
-                            <PhoneMockup platform={active === 0 ? "android" : "ios"} className="[--phone-w:min(10rem,24svh)] sm:[--phone-w:min(13rem,30svh)] lg:[--phone-w:min(17rem,38svh)]">
+                            <PhoneMockup platform={active === 0 ? "android" : "ios"} className="[--phone-w:min(10rem,18svh)] sm:[--phone-w:min(13rem,30svh)] lg:[--phone-w:min(17rem,38svh)]">
                                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-black" />
                                 {slides.map((s, i) => (
                                     <div key={s.title} className="showcase-slide absolute inset-0 pt-[18%]" data-index={i}>

@@ -130,8 +130,12 @@ body {
   50%      { transform: translate3d(0, -12px, 0); }
 }
 
+/* Tamanho padrão numa camada base: CSS sem camada sempre vence as utilities do Tailwind,
+   então sem isso as classes [--phone-w:...] nunca eram aplicadas. */
+@layer base {
+  .phone { --phone-w: min(16rem, 62vw); }
+}
 .phone {
-  --phone-w: min(16rem, 62vw);
   position: relative;
   width: var(--phone-w);
   aspect-ratio: 9 / 18.5;
@@ -184,6 +188,7 @@ body {
   align-items: center;
   overflow: hidden;
   padding-top: var(--nav-h);
+  padding-bottom: 1.25rem;
 }
 .showcase-slide {
   grid-area: 1 / 1;
