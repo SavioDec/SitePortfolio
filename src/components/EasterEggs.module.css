@@ -1,0 +1,69 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 30%, rgba(30, 41, 80, 0.88), rgba(3, 6, 18, 0.95));
+    animation: nightFade 8s ease-in-out forwards;
+}
+
+.star {
+    position: absolute;
+    border-radius: 9999px;
+    background: #c7d2fe;
+    animation: twinkle 2.4s ease-in-out infinite;
+}
+
+.flyer {
+    position: absolute;
+    right: -140px;
+    width: 120px;
+    height: 120px;
+    background: url('/BANGUELA_VOANDO.webp') center / contain no-repeat;
+    animation: fly 3.6s linear forwards;
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    z-index: 10000;
+    transform: translateX(-50%);
+    padding: 0.65rem 1.25rem;
+    border-radius: 9999px;
+    background: rgba(10, 10, 10, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #ededed;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: toastLife 4s ease-in-out forwards;
+}
+
+@keyframes nightFade {
+    0% { opacity: 0; }
+    12%, 82% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 1; }
+}
+
+@keyframes fly {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100vw - 280px)); }
+}
+
+@keyframes toastLife {
+    0% { opacity: 0; transform: translate(-50%, 12px); }
+    10%, 85% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .overlay, .star, .flyer { display: none; }
+}

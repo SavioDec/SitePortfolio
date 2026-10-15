@@ -5,6 +5,7 @@ import NavBar from "@/src/components/NavBar";
 import React from "react";
 import MouseFollower from "@/src/components/MouseFollower";
 import ScrollProgress from "@/src/components/ScrollProgress";
+import EasterEggs from "@/src/components/EasterEggs";
 import { getLang, getDictionary } from "@/src/utils/lang";
 
 const geistSans = Geist({
@@ -54,6 +55,7 @@ export default async function RootLayout({
       >
         <ScrollProgress />
         <MouseFollower />
+        <EasterEggs text={dict.easter} />
         <NavBar lang={lang} dict={dict} />
 
         {children}

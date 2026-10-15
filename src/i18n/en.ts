@@ -138,5 +138,15 @@ export const en: Dictionary = {
             "landing-page-Template": "Modern website template.",
             "Calculadora-de-IMC": "Simple page to calculate BMI."
         }
+    },
+    easter: {
+        tabAway: "Come back! Toothless misses you",
+        nightOn: "Night Fury mode on",
+        consoleTitle: "Hey, curious one! You opened the console.",
+        consoleBody: "If you like looking under the hood, let's talk: contato@saviodecaro.dev",
+        notFoundCode: "404",
+        notFoundTitle: "This page flew away.",
+        notFoundText: "Toothless looked everywhere but could not find what you wanted.",
+        notFoundCta: "Back to home"
     }
 };

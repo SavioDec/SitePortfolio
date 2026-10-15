@@ -136,6 +136,16 @@ export const pt = {
             "landing-page-Template": "Template moderno de modelo de site.",
             "Calculadora-de-IMC": "Página simples para cálculo de IMC."
         } as Record<string, string>
+    },
+    easter: {
+        tabAway: "Volte! O Banguela sente sua falta",
+        nightOn: "Modo Fúria da Noite ativado",
+        consoleTitle: "Ei, curioso! Você abriu o console.",
+        consoleBody: "Se gosta de olhar por baixo do capô, vamos conversar: contato@saviodecaro.dev",
+        notFoundCode: "404",
+        notFoundTitle: "Esta página saiu voando.",
+        notFoundText: "O Banguela procurou em todo lugar, mas não achou o que você queria.",
+        notFoundCta: "Voltar para o início"
     }
 };
 
