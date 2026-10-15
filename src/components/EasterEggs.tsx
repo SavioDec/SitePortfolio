@@ -105,9 +105,9 @@ export default function EasterEggs({ text }: { text: EasterText }) {
                         style={{ top: `${s.top}%`, left: `${s.left}%`, width: s.size, height: s.size, animationDelay: `${s.delay}s` }}
                     />
                 ))}
-                <span className={styles.flyer} style={{ top: "18%", animationDelay: "0.4s" }} />
-                <span className={styles.flyer} style={{ top: "52%", animationDelay: "2.1s", animationDuration: "4.2s" }} />
-                <span className={styles.flyer} style={{ top: "34%", animationDelay: "3.8s", animationDuration: "3.2s" }} />
+                <span className={styles.flyer} style={{ top: "18%", animationDelay: "0.4s" }}><span className={styles.flap} /></span>
+                <span className={styles.flyer} style={{ top: "52%", animationDelay: "2.1s", animationDuration: "4.2s" }}><span className={styles.flap} /></span>
+                <span className={styles.flyer} style={{ top: "34%", animationDelay: "3.8s", animationDuration: "3.2s" }}><span className={styles.flap} /></span>
             </div>
             <div className={styles.toast} role="status">{text.nightOn}</div>
         </>

@@ -242,3 +242,26 @@ body {
   .phone .showcase-slide { margin-bottom: 0; }
   .phone .showcase-slide[data-index="1"] { display: none; }
 }
+
+/* Banguela voando: sprite com 7 quadros, bate as asas e flutua */
+.toothless-fly {
+  --s: 160px;
+  width: var(--s);
+  height: var(--s);
+  background: url('/BANGUELA_VOANDO_SHEET.webp') 0 0 / calc(var(--s) * 7) var(--s) no-repeat;
+  animation: toothless-flap 0.5s steps(7) infinite;
+}
+.toothless-float {
+  animation: toothless-float 2.4s ease-in-out infinite;
+}
+@keyframes toothless-flap {
+  from { background-position-x: 0; }
+  to { background-position-x: calc(var(--s) * -7); }
+}
+@keyframes toothless-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .toothless-fly, .toothless-float { animation: none; }
+}

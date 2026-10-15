@@ -20,8 +20,14 @@
     right: -140px;
     width: 120px;
     height: 120px;
-    background: url('/BANGUELA_VOANDO.webp') center / contain no-repeat;
     animation: fly 3.6s linear forwards;
+}
+
+.flap {
+    width: 120px;
+    height: 120px;
+    background: url('/BANGUELA_VOANDO_SHEET.webp') 0 0 / 840px 120px no-repeat;
+    animation: flap 0.5s steps(7) infinite;
 }
 
 .toast {
@@ -51,6 +57,11 @@
 @keyframes twinkle {
     0%, 100% { opacity: 0.15; }
     50% { opacity: 1; }
+}
+
+@keyframes flap {
+    from { background-position-x: 0; }
+    to { background-position-x: -840px; }
 }
 
 @keyframes fly {
