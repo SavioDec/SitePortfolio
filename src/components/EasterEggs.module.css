@@ -24,6 +24,7 @@
 }
 
 .flap {
+    display: block;
     width: 120px;
     height: 120px;
     background: url('/BANGUELA_VOANDO_SHEET.webp') 0 0 / 840px 120px no-repeat;
