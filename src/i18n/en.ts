@@ -143,7 +143,7 @@ export const en: Dictionary = {
         tabAway: "Hey! Come back!!",
         nightOn: "Night Fury mode on",
         consoleTitle: "Hey, curious one! You opened the console.",
-        consoleBody: "If you like looking under the hood, let's talk: contato@saviodecaro.dev",
+        consoleBody: "If you like looking under the hood, let's talk: savio.decaro@gmail.com",
         notFoundCode: "404",
         notFoundTitle: "This page flew away.",
         notFoundText: "Toothless looked everywhere but could not find what you wanted.",

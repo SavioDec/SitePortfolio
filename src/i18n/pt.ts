@@ -141,7 +141,7 @@ export const pt = {
         tabAway: "Ei! Volta aqui!!",
         nightOn: "Modo Fúria da Noite ativado",
         consoleTitle: "Ei, curioso! Você abriu o console.",
-        consoleBody: "Se gosta de olhar por baixo do capô, vamos conversar: contato@saviodecaro.dev",
+        consoleBody: "Se gosta de olhar por baixo do capô, vamos conversar: savio.decaro@gmail.com",
         notFoundCode: "404",
         notFoundTitle: "Esta página saiu voando.",
         notFoundText: "O Banguela procurou em todo lugar, mas não achou o que você queria.",

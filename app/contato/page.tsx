@@ -28,7 +28,7 @@ export default async function Contato() {
 
                         {/* Email */}
                         <a
-                            href="mailto:contato@saviodecaro.dev"
+                            href="mailto:savio.decaro@gmail.com"
                             className="group flex items-center gap-4 sm:gap-5 p-3 sm:p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
                         >
                             <div className="bg-red-100 dark:bg-red-900/30 p-3.5 rounded-xl text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform">
@@ -36,7 +36,7 @@ export default async function Contato() {
                             </div>
                             <div>
                                 <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{dict.contato.email}</p>
-                                <p className="text-[15px] sm:text-lg font-bold text-slate-900 dark:text-white [overflow-wrap:anywhere]">contato@saviodecaro.dev</p>
+                                <p className="text-[15px] sm:text-lg font-bold text-slate-900 dark:text-white [overflow-wrap:anywhere]">savio.decaro@gmail.com</p>
                             </div>
                         </a>
 
