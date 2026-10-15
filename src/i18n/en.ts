@@ -140,7 +140,7 @@ export const en: Dictionary = {
         }
     },
     easter: {
-        tabAway: "Come back! Toothless misses you",
+        tabAway: "Hey! Come back!!",
         nightOn: "Night Fury mode on",
         consoleTitle: "Hey, curious one! You opened the console.",
         consoleBody: "If you like looking under the hood, let's talk: contato@saviodecaro.dev",

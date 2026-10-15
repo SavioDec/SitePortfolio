@@ -138,7 +138,7 @@ export const pt = {
         } as Record<string, string>
     },
     easter: {
-        tabAway: "Volte! O Banguela sente sua falta",
+        tabAway: "Ei! Volta aqui!!",
         nightOn: "Modo Fúria da Noite ativado",
         consoleTitle: "Ei, curioso! Você abriu o console.",
         consoleBody: "Se gosta de olhar por baixo do capô, vamos conversar: contato@saviodecaro.dev",
