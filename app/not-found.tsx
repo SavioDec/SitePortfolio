@@ -8,7 +8,7 @@ export default async function NotFound() {
         <main className="flex min-h-[100svh] flex-col items-center justify-center bg-slate-50 px-6 text-center text-slate-900 dark:bg-slate-950 dark:text-slate-100">
             <div
                 className="h-40 w-40 bg-contain bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/BANGUELA_SENTADO.webp')" }}
+                style={{ backgroundImage: "url('/BANGUELA_VOANDO.webp')" }}
                 role="img"
                 aria-label="Toothless"
             />
